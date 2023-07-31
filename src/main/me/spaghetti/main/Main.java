@@ -1,8 +1,8 @@
-package main.me.spaghetti;
+package main.me.spaghetti.main;
 
 import javax.swing.*;
 import java.awt.image.BufferedImage;
-
+import java.util.Arrays;
 
 public class Main {
 
@@ -27,9 +27,7 @@ public class Main {
     static MyFrame frame = new MyFrame("Game", frameWidth, frameHeight);
     static int tileSize = 60;
 
-    // each map is associated with a file in resources/maps
     static Map map1 = new Map("map1");
-    static Map map2 = new Map("map2");
 
     // 1024 is arbitrary, this needs to be reworked eventually
     static JPanel[] panels = new JPanel[1024];
@@ -42,7 +40,6 @@ public class Main {
         DisplayBoard.InitialSetup();
 
         // SwingUtilities.invokeLater(PolyTest::new);
-        DisplayBoard.Panels(map2);
-
+        DisplayBoard.Panels(map1);
     }
 }

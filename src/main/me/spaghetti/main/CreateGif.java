@@ -1,4 +1,4 @@
-package main.me.spaghetti;
+package main.me.spaghetti.main;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.FileImageOutputStream;
@@ -6,7 +6,7 @@ import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-public class CreateGifExample {
+public class CreateGif {
 
     public static void main(String[] args) throws Exception {
         BufferedImage first = ImageIO.read(new File("/tmp/duke.jpg"));

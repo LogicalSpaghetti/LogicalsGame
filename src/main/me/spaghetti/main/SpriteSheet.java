@@ -1,4 +1,4 @@
-package main.me.spaghetti;
+package main.me.spaghetti.main;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

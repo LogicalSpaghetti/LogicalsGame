@@ -1,10 +1,10 @@
-package main.me.spaghetti;
+package main.me.spaghetti.main;
 
 import javax.swing.ImageIcon;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import static main.me.spaghetti.Main.tileSize;
+import static main.me.spaghetti.main.Main.tileSize;
 
 public class Rescale {
     public static BufferedImage ImageIcon(ImageIcon icon) {

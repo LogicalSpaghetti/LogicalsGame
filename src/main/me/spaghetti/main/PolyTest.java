@@ -1,4 +1,4 @@
-package main.me.spaghetti;
+package main.me.spaghetti.main;
 
 import java.awt.Color;
 import java.awt.Dimension;

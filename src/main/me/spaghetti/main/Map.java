@@ -1,4 +1,4 @@
-package main.me.spaghetti;
+package main.me.spaghetti.main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,5 +26,7 @@ public class Map {
         this.width = this.bufferedImage.getWidth();
         this.height = this.bufferedImage.getHeight();
         this.layout = MapDecoder.ImageToArray(bufferedImage);
+        System.out.println(this.getClass());
+
     }
 }
