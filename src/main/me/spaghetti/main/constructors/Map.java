@@ -1,4 +1,6 @@
-package main.me.spaghetti.main;
+package main.me.spaghetti.main.constructors;
+
+import main.me.spaghetti.main.MapDecoder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,12 +10,11 @@ import java.awt.image.BufferedImage;
 public class Map {
 
     String fileName;
-    int width;
-    String[] layout;
-    int height;
+    public int width;
+    public String[] layout;
     BufferedImage bufferedImage;
 
-    Map(String mapName) {
+    public Map(String mapName) {
         this.fileName = "src/main/resources/maps/" + mapName + ".png";
 
         Image img = ((new ImageIcon(fileName)).getImage());
@@ -24,9 +25,6 @@ public class Map {
         bGr.dispose();
 
         this.width = this.bufferedImage.getWidth();
-        this.height = this.bufferedImage.getHeight();
         this.layout = MapDecoder.ImageToArray(bufferedImage);
-        System.out.println(this.getClass());
-
     }
 }

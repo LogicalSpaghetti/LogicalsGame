@@ -1,4 +1,4 @@
-package main.me.spaghetti.main;
+package main.me.spaghetti.main.gif;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.FileImageOutputStream;

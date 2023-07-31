@@ -1,4 +1,4 @@
-package main.me.spaghetti.main;
+package main.me.spaghetti.main.gif;
 
 import javax.imageio.*;
 import javax.imageio.metadata.IIOInvalidTreeException;

@@ -1,5 +1,7 @@
 package main.me.spaghetti.main;
 
+import main.me.spaghetti.main.constructors.Map;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
@@ -52,14 +54,14 @@ public class DisplayBoard {
     public static void InitialTextureRescale() {
         for (int i = 0; i < Main.tileNames.length; i++) {
             if (!Objects.equals(Main.tileNames[i], "space")) {
-                RescaleEach(Main.tileNames[i], Main.fileNames[i]);
+                RescaleEach(Main.tileNames[i]);
             }
         }
     }
 
-    public static void RescaleEach(String name, String fileName) {
+    public static void RescaleEach(String name) {
 
-        ImageIcon icon = new ImageIcon(fileName + ".png");
+        ImageIcon icon = new ImageIcon( "src/main/resources/floor/" + name + ".png");
         SaveImageToFile.Save(Rescale.ImageIcon(icon), name);
     }
 }

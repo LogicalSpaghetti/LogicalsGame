@@ -1,0 +1,4 @@
+grass = 027021
+stone = 3a3a3a
+water = 0fa4e6
+space = ffffff
