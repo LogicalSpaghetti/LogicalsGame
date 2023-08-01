@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 
+// creates a Polygon using awt, and displays it with Swing
 public class PolyTest {
 
     private Polygon poly;

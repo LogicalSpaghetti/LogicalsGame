@@ -1,28 +1,34 @@
 package main.me.spaghetti.main;
 
 import main.me.spaghetti.main.constructors.Map;
+import main.me.spaghetti.main.simpleMethods.RescaleImage;
+import main.me.spaghetti.main.simpleMethods.SaveImageToFile;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
+import static main.me.spaghetti.main.Main.*;
+
 public class DisplayBoard {
     public static void InitialSetup() {
 
+        // Rescales all textures to tileSize
         InitialTextureRescale();
 
-        for (int i = 0; i < Main.panels.length; i++) {
-            Main.panels[i] = new JPanel();
-            Main.panels[i].setBackground(Color.white);
-            Main.panels[i].setPreferredSize(new Dimension(Main.tileSize, Main.tileSize));
-            Main.panels[i].setLayout(null);
-            Main.panels[i].setFocusable(false);
+        // Does the initial configuration for the JPanels and JLabels
+        for (int i = 0; i < panels.length; i++) {
+            panels[i] = new JPanel();
+            panels[i].setBackground(Color.white);
+            panels[i].setPreferredSize(new Dimension(tileSize, tileSize));
+            panels[i].setLayout(null);
+            panels[i].setFocusable(false);
 
-            Main.labels[i] = new JLabel();
-            Main.labels[i].setVisible(true);
-            Main.labels[i].setBounds(0, 0, Main.tileSize, Main.tileSize);
+            labels[i] = new JLabel();
+            labels[i].setVisible(true);
+            labels[i].setBounds(0, 0, tileSize, tileSize);
 
-            Main.panels[i].add(Main.labels[i]);
+            panels[i].add(labels[i]);
         }
     }
 
@@ -33,35 +39,37 @@ public class DisplayBoard {
 
         String[] gridLayout = map.layout;
 
-        for (JPanel jPanel : Main.panels) {
+        // hides every panel in case any were open from a previous run
+        for (JPanel jPanel : panels) {
             jPanel.setVisible(false);
         }
 
+        // loops through all JPanels required to display the map, sets them up and displays them
         for (int i = 0; i < map.layout.length; i++) {
 
-            Main.labels[i].setIcon(new ImageIcon("src/main/resources/rescaled_textures/" + gridLayout[i] + "Re.png"));
+            labels[i].setIcon(new ImageIcon("src/main/resources/rescaled_textures/" + gridLayout[i] + "Re.png"));
 
-            int xPosition = (i%width) * Main.tileSize;
-            int yPosition = ((i-(i%width))/width) * Main.tileSize;
-            Main.panels[i].setBounds(xPosition, yPosition, Main.tileSize, Main.tileSize);
+            int xPosition = (i%width) * tileSize;
+            int yPosition = ((i-(i%width))/width) * tileSize;
+            panels[i].setBounds(xPosition, yPosition, tileSize, tileSize);
 
-            Main.frame.add(Main.panels[i]);
-            Main.panels[i].setVisible(true);
+            frame.add(panels[i]);
+            panels[i].setVisible(true);
         }
     }
 
     // for each texture, input its name into a method which rescales it and creates a new texture with that filename
     public static void InitialTextureRescale() {
-        for (int i = 0; i < Main.tileNames.length; i++) {
-            if (!Objects.equals(Main.tileNames[i], "space")) {
-                RescaleEach(Main.tileNames[i]);
+        for (String tileName : tileNames) {
+            if (!Objects.equals(tileName, "space")) {
+                RescaleEach(tileName);
             }
         }
     }
 
+    // rescales each image and saves it to the floor folder
     public static void RescaleEach(String name) {
-
         ImageIcon icon = new ImageIcon( "src/main/resources/floor/" + name + ".png");
-        SaveImageToFile.Save(Rescale.ImageIcon(icon), name);
+        SaveImageToFile.Buffered(RescaleImage.ImageIcon(icon), name);
     }
 }
