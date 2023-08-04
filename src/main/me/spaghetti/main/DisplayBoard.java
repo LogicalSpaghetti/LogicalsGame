@@ -67,9 +67,9 @@ public class DisplayBoard {
         }
     }
 
-    // rescales each image and saves it to the floor folder
+    // rescales each image and saves it to the unscaled folder
     public static void RescaleEach(String name) {
-        ImageIcon icon = new ImageIcon( "src/main/resources/floor/" + name + ".png");
+        ImageIcon icon = new ImageIcon( "src/main/resources/unscaled/" + name + ".png");
         SaveImageToFile.Buffered(RescaleImage.ImageIcon(icon), name);
     }
 }

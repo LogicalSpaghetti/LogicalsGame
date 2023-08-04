@@ -10,7 +10,7 @@ public class Map {
     public String fileName;
     public int width;
     public String[] layout;
-    BufferedImage bufferedImage;
+    public BufferedImage bufferedImage;
 
     public Map(String mapName) {
         this.fileName = "src/main/resources/maps/" + mapName + ".png";

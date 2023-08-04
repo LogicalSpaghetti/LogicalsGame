@@ -2,9 +2,12 @@ package main.me.spaghetti.main;
 
 import main.me.spaghetti.main.constructors.Map;
 import main.me.spaghetti.main.constructors.MyFrame;
+import main.me.spaghetti.main.simpleMethods.SaveImageToFile;
+import main.me.spaghetti.main.warpTiles.ReDrawToRotate;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Main {
 
@@ -31,8 +34,27 @@ public class Main {
 
     // main method
     public static void main(String[] args) {
-        DisplayBoard.InitialSetup();
+        // DisplayBoard.InitialSetup();
         // SwingUtilities.invokeLater(PolyTest::new);
-        DisplayBoard.Panels(map1);
+        // DisplayBoard.Panels(map1);
+
+        BufferedImage image2 = ReDrawToRotate.Rotate(map1.bufferedImage, 0, 0, 45);
+        MyFrame frame2 = new MyFrame("Warped Image", 100, 100);
+        JPanel panel2 = new JPanel();
+        JLabel label2 = new JLabel();
+        label2.setBounds(0,0,image2.getWidth() * 10,image2.getHeight() * 10);
+        panel2.setBounds(0,0,image2.getWidth() * 10,image2.getHeight() * 10);
+        panel2.setLayout(null);
+        label2.setLayout(null);
+
+        SaveImageToFile.Buffered(image2, "warpedWaldo");
+        ImageIcon icon = new ImageIcon("src/main/resources/rescaled_textures/" + "warpedWaldo" + "Re.png");
+
+        label2.setIcon(icon);
+        panel2.add(label2);
+        frame2.add(panel2);
+        panel2.setVisible(true);
+
+
     }
 }
